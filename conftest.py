@@ -10,7 +10,7 @@ from test_url import main_site
 @pytest.fixture(scope='function')
 def driver():
     options = Options()
-    options.add_argument("--window-size=1200,600")
+    options.add_argument("--window-size=1920,1080")
     options.add_argument("--incognito")
     browser = webdriver.Chrome(options=options)
     browser.get(main_site)
@@ -22,6 +22,6 @@ def driver():
 @pytest.fixture
 def authentication(driver):
     driver.find_element(*TestLocators.login_button_main_page).click()
-    driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.email)
-    driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.password)
+    driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.EMAIL)
+    driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.PASSWORD)
     driver.find_element(*TestLocators.aut_login_button).click()

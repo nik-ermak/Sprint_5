@@ -13,8 +13,8 @@ class TestAuthentication:
         WebDriverWait(driver,3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_registration_link))
 
-        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.email)
-        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.password)
+        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.EMAIL)
+        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.PASSWORD)
         driver.find_element(*TestLocators.aut_login_button).click()
 
         WebDriverWait(driver,3).until(
@@ -27,8 +27,8 @@ class TestAuthentication:
         WebDriverWait(driver,3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_login_button))
 
-        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.email)
-        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.password)
+        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.EMAIL)
+        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.PASSWORD)
         driver.find_element(*TestLocators.aut_login_button).click()
 
         WebDriverWait(driver,3).until(
@@ -49,8 +49,8 @@ class TestAuthentication:
         WebDriverWait(driver,3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_registration_link))
 
-        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.email)
-        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.password)
+        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.EMAIL)
+        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.PASSWORD)
         driver.find_element(*TestLocators.aut_login_button).click()
 
         WebDriverWait(driver,3).until(
@@ -71,8 +71,8 @@ class TestAuthentication:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_login_button))
 
-        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.email)
-        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.password)
+        driver.find_element(*TestLocators.aut_email_field).send_keys(UserData.EMAIL)
+        driver.find_element(*TestLocators.aut_password_field).send_keys(UserData.PASSWORD)
         driver.find_element(*TestLocators.aut_login_button).click()
 
         WebDriverWait(driver, 3).until(

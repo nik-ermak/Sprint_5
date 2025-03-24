@@ -20,7 +20,7 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.registration_button))
 
-        driver.find_element(*TestLocators.name_field).send_keys(UserData.username)
+        driver.find_element(*TestLocators.name_field).send_keys(UserData.USERNAME)
         driver.find_element(*TestLocators.email_field).send_keys(random_email)
         driver.find_element(*TestLocators.password_field).send_keys(random_password)
         driver.find_element(*TestLocators.registration_button).click()
@@ -41,6 +41,8 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.registration_button))
 
+        current_url = driver.current_url
+
         driver.find_element(*TestLocators.name_field).send_keys('')
         driver.find_element(*TestLocators.email_field).send_keys(random_email)
         driver.find_element(*TestLocators.password_field).send_keys(random_password)
@@ -48,7 +50,9 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_login_button))
 
-        assert driver.find_element(*TestLocators.aut_login_button).is_displayed()
+        current_url_after_click = driver.current_url
+
+        assert current_url_after_click == current_url
 
     # Попытка регистрации с пустым полем Email
     def test_registration_empty_email_field_failed(self, driver):
@@ -61,7 +65,9 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.registration_button))
 
-        driver.find_element(*TestLocators.name_field).send_keys(UserData.username)
+        current_url = driver.current_url
+
+        driver.find_element(*TestLocators.name_field).send_keys(UserData.USERNAME)
         driver.find_element(*TestLocators.email_field).send_keys('')
         driver.find_element(*TestLocators.password_field).send_keys(random_password)
         driver.find_element(*TestLocators.registration_button).click()
@@ -69,7 +75,9 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_login_button))
 
-        assert driver.find_element(*TestLocators.aut_login_button).is_displayed()
+        current_url_after_click = driver.current_url
+
+        assert current_url_after_click == current_url
 
     # Попытка регистрации с пустым полем пароль
     def test_registration_empty_password_field_failed(self, driver):
@@ -82,7 +90,9 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.registration_button))
 
-        driver.find_element(*TestLocators.name_field).send_keys(UserData.username)
+        current_url = driver.current_url
+
+        driver.find_element(*TestLocators.name_field).send_keys(UserData.USERNAME)
         driver.find_element(*TestLocators.email_field).send_keys(random_email)
         driver.find_element(*TestLocators.password_field).send_keys('')
         driver.find_element(*TestLocators.registration_button).click()
@@ -90,7 +100,9 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.aut_login_button))
 
-        assert driver.find_element(*TestLocators.aut_login_button).is_displayed()
+        current_url_after_click = driver.current_url
+
+        assert current_url_after_click == current_url
 
     # Проверка получения ошибки "Некорректный пароль". Длина пароля меньше 6 символов
     @pytest.mark.parametrize('invalid_password', ['12345', '1234', '1'])
@@ -104,7 +116,7 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.registration_button))
 
-        driver.find_element(*TestLocators.name_field).send_keys(UserData.username)
+        driver.find_element(*TestLocators.name_field).send_keys(UserData.USERNAME)
         driver.find_element(*TestLocators.email_field).send_keys(random_email)
         driver.find_element(*TestLocators.password_field).send_keys(invalid_password)
         driver.find_element(*TestLocators.registration_button).click()
@@ -125,7 +137,7 @@ class TestRegistration:
         WebDriverWait(driver, 3).until(
             expected_conditions.visibility_of_element_located(TestLocators.registration_button))
 
-        driver.find_element(*TestLocators.name_field).send_keys(UserData.username)
+        driver.find_element(*TestLocators.name_field).send_keys(UserData.USERNAME)
         driver.find_element(*TestLocators.email_field).send_keys(random_email)
         driver.find_element(*TestLocators.password_field).send_keys(long_valid_password)
         driver.find_element(*TestLocators.registration_button).click()
